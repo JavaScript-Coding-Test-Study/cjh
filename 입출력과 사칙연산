@@ -1,1 +1,25 @@
+# 입출력과 사칙연산
 
+## 문제번호(1000) A+B
+
+### 문제 
+두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+첫째 줄에 A와 B가 주어진다. (0 < A, B < 10)
+첫째 줄에 A+B를 출력한다.
+
+### 문제풀이
+
+const input = require('fs').readFileSync('/dev/stdin').toString().split(' ');
+console.log(Number(input[0]) + Number(input[1]));
+
+### 공부한 내용
+주어지는 A,B를 require를 이용하여 fs(FileSystem)모듈을 가져온다는 뜻이고 
+readFileSync('/dev/stdin')는 표준입력값을 받아서 직접 입력 파일을 처리하겠다는 뜻이다.
+하지만 이렇게 입력값을 받으면 버퍼객체를 반환하기 때문에 예기치 못한 오류가 일어날 수 있다.
+그렇기 때문에 꼭 toString()을 통하여 문자열로 반환을 해주어야 한다.
+또한 fs모듈은 입력값을 하나로 만들기 때문에 입력값을 2개를 받기 위해 split메서드를 통하여 
+공백을 이용하여 문자 배열로 반환하도록 하였다.
+마지막 콘솔창에서 input으로 받은 0번째와 1번째를 Number메서드를 사용하지 않는다면 문자열들끼리의 
+결합이기 때문에 오류가 발생할 수 있다.
+
+출처 : https://velog.io/@brgndy/%EB%B0%B1%EC%A4%80-1000%EB%B2%88-Node.js-%ED%92%80%EC%9D%B4, node.js 공식 홈페이지
